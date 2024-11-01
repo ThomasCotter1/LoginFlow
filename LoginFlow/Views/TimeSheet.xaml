@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="LoginFlow.Views.TimeSheet"
+             Title="TimeSheet">
+    <ScrollView>
+        <VerticalStackLayout
+    Padding="30,0"
+    Spacing="25">
+            
+
+            <Grid 
+                 ColumnDefinitions="33.33*, 33.33*, 33.33*"
+                 ColumnSpacing="8" 
+                 HorizontalOptions="FillAndExpand">
+
+                <Button x:Name="btn_clock_in" Text="Clock In" Grid.Column="0" HorizontalOptions="FillAndExpand" TextColor="Black" BackgroundColor="Yellow" Clicked="button_ClockIn_Clicked"/>
+                <Button x:Name="btn_clock_out" Text="Clock Out" Grid.Column="1" HorizontalOptions="FillAndExpand" TextColor="Black" BackgroundColor="Yellow" Clicked="button_ClockOut_Clicked"/>
+                <Button  x:Name="btn_submit_pay" Text="Submit" Grid.Column="2" HorizontalOptions="FillAndExpand" TextColor="Black" BackgroundColor="GreenYellow" Clicked="testButton_Clicked" />
+            </Grid>
+
+            <Grid 
+     ColumnDefinitions="50*, 50*"
+     ColumnSpacing="8" 
+     HorizontalOptions="FillAndExpand">
+
+                <Entry x:Name="entry_JobCode" Placeholder="Job Code" Grid.Column="0" HorizontalOptions="FillAndExpand" Keyboard="Numeric" HorizontalTextAlignment="Center" BackgroundColor="White" TextColor="Black"/>
+                <Picker x:Name="JobCodePicker" Title="Select Work Code" Grid.Column="1" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Center" BackgroundColor="White" TextColor="Black" />
+
+            </Grid>
+
+            <Label
+                x:Name="TestLabel"/>
+
+
+            <!--
+        <Label
+         Text="First Name"
+         AnchorX="0"
+         FontSize="20"
+        SemanticProperties.HeadingLevel="Level4" />
+        
+        <Entry
+         x:Name="FirstName"
+         MaxLength="20"
+         Text="" />
+
+        <Label
+            Text="Last Name"
+            AnchorX="0"
+            FontSize="20"
+            SemanticProperties.HeadingLevel="Level4" />
+
+        <Entry
+             x:Name="LastName"
+             MaxLength="20"
+             Text="" />
+        
+        <Label
+           Text="Date"
+           AnchorX="0"
+           FontSize="20"
+           SemanticProperties.HeadingLevel="Level4" />
+         
+        <DatePicker MinimumDate="01/01/2024"
+           MaximumDate="12/31/2025"
+           Date="10/16/2024" />
+        
+        
+        <Label
+            Text="Start Time"
+            AnchorX="0"
+            FontSize="20"
+            SemanticProperties.HeadingLevel="Level4" />
+
+        <TimePicker Time="{Binding SelectedTime}" />
+
+        <Label
+           Text="End Time"
+           AnchorX="0"
+           FontSize="20"
+           SemanticProperties.HeadingLevel="Level4" />
+
+        <TimePicker Time="{Binding SelectedTime}" />
+
+        <Label
+             Text="Code"
+             AnchorX="0"
+             FontSize="20"
+             SemanticProperties.HeadingLevel="Level4" />
+
+        <Picker x:Name="JobCodePicker">
+            <Picker.Items>
+                <x:String>PRE - Prestart</x:String> 
+                <x:String>NCL - Non Chargeable Labour</x:String>
+                <x:String>ONC - Non-chargeable Downtime</x:String>
+                <x:String>SB - Standby (Non-chargeable)</x:String>
+                <x:String>LAB - Labour</x:String>
+                <x:String>OER - Operator Equipment Repairs</x:String>
+                <x:String>IND - Induction</x:String>
+                <x:String>TRN - Training</x:String>
+                <x:String>MNT - Mentor</x:String>
+                <x:String>DHI - Dry Hired In</x:String>
+                <x:String>001 - Road Trains</x:String>
+                <x:String>002 - Singles </x:String>
+                <x:String>003 - Tripples</x:String>
+                <x:String>004 - B Doubles</x:String>
+                <x:String>ESC - Escort</x:String>
+                <x:String>WS - Workshop</x:String>
+                <x:String>MR - Mechanical Repairs (Qualified)</x:String>
+                <x:String>MRB - Mechanical Repairs (Unqualified)</x:String>
+                <x:String>HHG - Heavy Haulage GEM</x:String>
+                <x:String>HHC - Heavy Haulage Customer Charge</x:String>
+                <x:String>HHL - Heavy Haulage Labour</x:String>
+                <x:String>OPQ - Operations Quoting</x:String>
+                <x:String>OPM - Operations Project Managemen</x:String>
+                <x:String>OPO -  Operations Office Time</x:String>
+                <x:String>TT - Travel Time</x:String>
+            </Picker.Items>
+        </Picker>
+
+        <Button
+         x:Name="btn_submit_pay"
+         Text="Submit" 
+         SemanticProperties.Hint="Counts the number of times you click"
+         Clicked="button_TimesheetSubmit_Clicked"
+         HorizontalOptions="Fill" />
+        -->
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

@@ -28,6 +28,8 @@
         Route="home" />
 
         </Tab>
+        
+        
         <Tab Title="Settings" Icon="gear_fill.svg">
             <ShellContent
                 Icon="house_door_fill.svg"
@@ -35,6 +37,16 @@
         ContentTemplate="{DataTemplate views:SettingsPage}"
         Route="settings" />
         </Tab>
+
+
+        <Tab Title="Time Sheet" Icon="clock.svg">
+            <ShellContent
+        Icon="house_door_fill.svg"
+        Title="Settings"
+        ContentTemplate="{DataTemplate views:TimeSheet}"
+        Route="TimeSheet" />
+        </Tab>
+
     </TabBar>
 
 </Shell>
