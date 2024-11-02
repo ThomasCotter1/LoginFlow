@@ -1,4 +1,6 @@
 
+using System.Data;
+
 namespace LoginFlow.Views;
 
 public partial class TimeSheet : ContentPage
@@ -72,13 +74,49 @@ public partial class TimeSheet : ContentPage
 
     }
 
-    private async void testButton_Clicked(object sender, System.EventArgs e)
+    public async void testButton_Clicked(object sender, System.EventArgs e)
     {
         string result = await DisplayPromptAsync("Confirm Pin", "What is your pin", maxLength: 4, keyboard: Keyboard.Numeric);
 
         if (result == "1234")
         {
             DisplayAlert("Pin", "Correct", "Yes");
+
+
+
+            // basic functionality working, need to adjust location of table data as currently not how it shoule be setup
+            // change rows to the actual data taken each time clock in button has been pressed
+   
+
+
+            DataTable table = new DataTable("Timesheet");
+
+            table.Columns.Add("clockin", typeof(string));
+            table.Columns.Add("clockout", typeof(string));
+            table.Columns.Add("time", typeof(string));
+            table.Columns.Add("jobsitecode", typeof(string));
+            table.Columns.Add("workcode", typeof(string));
+
+            DataRow rows = table.NewRow();
+            rows["clockin"] = "Test";
+            rows["clockout"] = "Test";
+            rows["time"] = "Test";
+            rows["jobsitecode"] = "Test";
+            rows["workcode"] = "Test";
+
+            table.Rows.Add(rows);
+
+            foreach (DataRow row in table.Rows)
+            {
+                string clockintime = row["clockin"].ToString();
+                string clockouttime = row["clockout"].ToString();
+                string timediff = row["time"].ToString();
+                string jobsitecode = row["jobsitecode"].ToString();
+                string workcode = row["workcode"].ToString();
+
+                TestLabel.Text += "PRINTING FROM DATA TABLE" + " " + clockintime + " " + clockouttime + " " + timediff + " " + jobsitecode + " " + workcode;
+            }
+
         }
         else
         {
@@ -87,7 +125,7 @@ public partial class TimeSheet : ContentPage
         }
     }
 
-    private void button_ClockIn_Clicked(object sender, EventArgs e)
+    public void button_ClockIn_Clicked(object sender, EventArgs e)
     {
         var CurrentTime = DateTime.Now.ToShortTimeString();
 
