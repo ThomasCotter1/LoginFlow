@@ -18,17 +18,18 @@
                 Opacity="0.9" />
                 </Frame.Shadow>
                 <StackLayout Padding="10">
-
+                    <Image
+                     Source="gorelogo"/>
+                    
                     <VerticalStackLayout Padding="10">
 
                         <VerticalStackLayout Padding="0" Margin="0,5,0,0">
-                            <HorizontalStackLayout>
-                                <Label FontSize="34" TextColor="Black" FontAttributes="Bold" Text="Account"/>
-                            </HorizontalStackLayout>
+                            
                             <Label
-                                Text="to Settings"
-                                FontSize="24"
+                                Text="@username"
+                                FontSize="34"
                                 FontAttributes="Bold"
+                                TextColor="ForestGreen"
                                 />
                             <Label
                                 Text="Your are currently logged in!"
@@ -43,6 +44,7 @@
                                 Margin="0,20,0,0"
                                 Text="Logout"
                                 TextColor="Red"
+                                
                                 x:Name="LogoutButton"
                                 Clicked="LogoutButton_Clicked"
                                 />
