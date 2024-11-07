@@ -2,12 +2,51 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="LoginFlow.Views.TimeSheet"
-             Title="TimeSheet">
+             Title="TimeSheet"
+             BackgroundColor="LightSeaGreen">
     <ScrollView>
-        <VerticalStackLayout
-    Padding="30,0"
-    Spacing="25">
+        <VerticalStackLayout 
+            Padding="30,20"
+            Spacing="25">
             
+            <Grid 
+                ColumnDefinitions="50*, 50*"
+                ColumnSpacing="8" 
+                HorizontalOptions="FillAndExpand">
+
+                <Label
+                x:Name="lbl_company"
+                FontSize="16"
+                TextColor="LawnGreen"
+                Grid.Column="0"/>
+
+
+                <Button
+                    x:Name="Settings"
+                    Grid.Column="1"
+                    HorizontalOptions="End"
+                    ImageSource="gear_fill.svg"
+                    BackgroundColor="LightGrey"
+                    Clicked="btnSetttings_Clicked"/>
+            </Grid>
+            
+            
+            <Label
+                x:Name="lbl_username"
+                FontSize="16"
+                TextColor="Yellow"/>
+
+           
+
+                <Label
+                    x:Name="lbl_Date"
+                    FontSize="16"
+                    TextColor="White"
+                    Grid.Column="1"
+                    HorizontalOptions="Start"/>
+        
+       
+
 
             <Grid 
                  ColumnDefinitions="33.33*, 33.33*, 33.33*"
@@ -30,6 +69,9 @@
             </Grid>
 
 
+            
+            
+            
             <Label
                 x:Name="TestLabel"/>
 

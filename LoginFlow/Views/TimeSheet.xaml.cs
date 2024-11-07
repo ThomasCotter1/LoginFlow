@@ -1,13 +1,23 @@
 
 using System.Data;
+using System;
+using System.Timers;
 
 namespace LoginFlow.Views;
 
 public partial class TimeSheet : ContentPage
 {
-	public TimeSheet()
-	{
-		InitializeComponent();
+    public TimeSheet()
+    {
+        InitializeComponent();
+
+        var timer = Application.Current.Dispatcher.CreateTimer();
+        timer.Interval = TimeSpan.FromSeconds(1);
+        timer.Tick += (s, e) => DoSomething();
+        timer.Start();
+
+
+
 
         var JobCodeList = new List<string>();
         JobCodeList.Add("PRE");
@@ -38,8 +48,18 @@ public partial class TimeSheet : ContentPage
 
         JobCodePicker.ItemsSource = JobCodeList;
 
+        lbl_company.Text = "Company";
+        lbl_username.Text = "@Username";
+
+
     }
 
+    void DoSomething()
+    {
+        var currentDate = DateTime.Now.ToString("hh:mm tt - dddd, d MMMM yyyy");
+        lbl_Date.Text = currentDate;
+
+    }
 
 
 
@@ -52,6 +72,8 @@ public partial class TimeSheet : ContentPage
         private void button_TimesheetSubmit_ClickedAsync(object sender, EventArgs e)
         {
     */
+
+
     private void button_TimesheetSubmit_Clicked(object sender, System.EventArgs e)
     {
         DisplayAlert("Alert", "You have been alerted", "OK");
@@ -86,7 +108,7 @@ public partial class TimeSheet : ContentPage
 
             // basic functionality working, need to adjust location of table data as currently not how it shoule be setup
             // change rows to the actual data taken each time clock in button has been pressed
-   
+
 
 
             DataTable table = new DataTable("Timesheet");
@@ -144,7 +166,7 @@ public partial class TimeSheet : ContentPage
         }
 
 
-        DisplayAlert("Clocked In", "Have you done your saftey...", "Confirm");
+
 
 
 
@@ -159,6 +181,12 @@ public partial class TimeSheet : ContentPage
     {
         DisplayAlert("Clocked Out", "Clock Out registered", "Confirm");
     }
+
+    private void btnSetttings_Clicked(object sender, EventArgs e)
+    {
+        DisplayAlert("Hello", "Hey", "Yes");
+       // Shell.Current.GoToAsync("///SetingsPage");
+    }
 }
 
-   
+

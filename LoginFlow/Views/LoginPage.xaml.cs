@@ -6,7 +6,13 @@ namespace LoginFlow.Views;
 public partial class LoginPage
 {
     public string user = "";
-    public int countInput = 0;
+    
+
+    public string inputtedPassword
+    {
+        get { return Password.Text; }
+        set { inputtedPassword = value; }
+    }
 }
 
 public partial class LoginPage : ContentPage
@@ -29,7 +35,7 @@ public partial class LoginPage : ContentPage
         {
 
             await SecureStorage.SetAsync("hasAuth", "true");
-            await Shell.Current.GoToAsync("///home");
+            await Shell.Current.GoToAsync("///TimeSheet");
         }
         else
         {
@@ -37,6 +43,11 @@ public partial class LoginPage : ContentPage
         }
     }
 
+    private void btnResetClicked(object sender, EventArgs e)
+    {
+        Username.Text = "";
+        Password.Text = "";
+    }
 
     bool IsCredentialCorrect(string username, string password)
     {
@@ -45,20 +56,21 @@ public partial class LoginPage : ContentPage
 
     private void Entry_TextChanged(object sender, TextChangedEventArgs e)
     {
-        countInput++;
 
-        if (countInput == 4)
+
+        if (inputtedPassword.Length == 4)
         {
             if (IsCredentialCorrect(Username.Text, Password.Text))
             {
 
                 SecureStorage.SetAsync("hasAuth", "true");
-                Shell.Current.GoToAsync("///home");
+                Shell.Current.GoToAsync("///TimeSheet");
             }
             else
             {
                 DisplayAlert("Login failed", "Username or password is invalid", "Try again");
-                countInput = 0;
+                Username.Text = "";
+                Password.Text = "";
             }
         }
     }
